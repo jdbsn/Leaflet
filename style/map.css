@@ -1,0 +1,12 @@
+#titulo {
+    text-align: center;
+}
+#map { 
+    width: 960px;
+    height: 540px; 
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+  

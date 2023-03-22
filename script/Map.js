@@ -1,7 +1,7 @@
 
     var map = L.map('map').setView([-8.887240773326587, -36.48660625446342], 14);
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
+    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
     {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -38,13 +38,18 @@
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
     });
 
+    // cria uma tile layer de satélite
+    googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3'], 
+        attribution: 'Google Maps'
+    });
+
     // cria um objeto que contem as layers de base
     var baseMaps = {
-        "Open Street": map,
-        "Mapbox": mapbox
+        "Padrão": osm,
+        "Mapbox": mapbox,
+        "Satélite": googleSat
     }
 
-    
-
     var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
-

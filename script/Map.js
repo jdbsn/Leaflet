@@ -53,3 +53,6 @@
     }
 
     var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+    // adiciona a escala atual do mapa na tela
+    L.control.scale().addTo(map);
